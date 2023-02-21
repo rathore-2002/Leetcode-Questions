@@ -25,3 +25,4 @@ n.put(nums2[i],i);
     return nums1;
 }
 }
+// without stack
