@@ -1,7 +1,5 @@
 class Solution {
     public int shipWithinDays(int[] weights, int days) {
-        // min weight of ship can be max(weights) (needs each box to be completely transfered per day)
-        // max weight of ship can be totalWeights of packages (when all transfered within one day)
 
         int i=0, j=0;
         for(int x:weights){
@@ -21,10 +19,10 @@ class Solution {
             }
 
             if(currdays>days){
-                i=mid+1;  // increasing the weight of ship when currdays>days
+                i=mid+1;  
             }
             else{
-                j=mid-1;  // reducing the weight of ship when currdays<=days
+                j=mid-1;  
             }
         }
         return i;
