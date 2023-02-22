@@ -1,16 +1,17 @@
 class Solution {
-    public String simplifyPath(String path) {
-        HashSet<String> set = new HashSet<>(Arrays.asList("..",".",""));
-        Stack<String> st = new Stack<>();
-        for(String s : path.split("/")){
-            if(s.equals("..") && !st.isEmpty())  st.pop();
-            else if(!set.contains(s))  st.push(s);
+   public String simplifyPath(String path) {
+    Stack<String> stack = new Stack();
+    for(String cur: path.split("/")){
+        if(cur.equals("..")) {
+            if(!stack.empty()) stack.pop();
         }
-       if(st.isEmpty())  return "/";
+        else if(cur.length()>0 && !cur.equals(".")) stack.push(cur);
+    }
+    if(stack.isEmpty())  return "/";
        String ans="";
-       while(!st.isEmpty()){
-           ans="/"+st.pop()+ans;
+       while(!stack.isEmpty()){
+           ans="/"+stack.pop()+ans;
        }
        return ans;
-    }
+}
 }
