@@ -5,10 +5,9 @@ class Solution {
         String[] words = s.split("\\s+");
     
         String ans="";
-        for(int i = words.length - 1; i > 0; --i){
+        for(int i = words.length - 1; i >= 0; --i){
             ans+=words[i]+" ";
         }
-        ans+=words[0];
         return ans.trim();
     }
 }
