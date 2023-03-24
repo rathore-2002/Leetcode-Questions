@@ -26,7 +26,7 @@ class Solution {
             for(int i=0;i<levelNo;i++){
                 if(q.peek().left!=null)       q.add(q.peek().left);
                 if(q.peek().right!=null)       q.add(q.peek().right);
-                a.add(q.poll().val);
+                a.add(q.remove().val);
             }
                 if(flag==1)
                     Collections.reverse(a);
