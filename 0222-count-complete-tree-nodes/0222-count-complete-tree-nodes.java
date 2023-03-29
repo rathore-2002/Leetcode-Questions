@@ -18,25 +18,16 @@ class Solution {
         if(root==null)      return 0;
         int left=getLH(root);
         int right=getRH(root);
-        if(left==right)          return ((2<<(left))-1);
+        if(left==right)          return (int)(Math.pow(2,left))-1;;
         return countNodes(root.left)+countNodes(root.right)+1;
     }
     public int getLH(TreeNode root){
-        int count=0;
-        while(root.left!=null){
-            count++;
-            root=root.left;
-        }
-        return count;
-        
-    }
+        if(root==null)         return 0;
+        return getLH(root.left)+1;
+     }
      public int getRH(TreeNode root){
-        int count=0;
-        while(root.right!=null){
-            count++;
-            root=root.right;
-        }
-        return count;
-        
-    }
+         if(root==null)         return 0;
+        return getRH(root.right)+1;
+     }
 }
+       
