@@ -1,15 +1,16 @@
 class Solution {
     public int partitionString(String s) {
-        HashSet<Character> set = new HashSet<>();
-            int i=0,ctr=0;
-            while(i<s.length()){
-                ctr++;
-            while((i<s.length()) && !set.contains(s.charAt(i))){
-                set.add(s.charAt(i));
-                i++;
+        int count=(s.isEmpty())? 0:1;
+        
+        s=s.toLowerCase();
+        HashSet<Character> letter =new HashSet<Character>();
+        for(int i=0;i<s.length();i++){
+            if(letter.contains(s.charAt(i))){
+                letter.clear();
+                count ++;
             }
-           set.clear();
+            letter.add(s.charAt(i));
         }
-        return ctr;
+        return count;
     }
 }
