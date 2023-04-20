@@ -1,6 +1,6 @@
 class Solution {
     int mod = 1_000_000_007;
-     public long calculateXPowerY(long a,long b){
+     public long calculateXPowerY(long a,long b){                 //simple pow(x,n) wala function.
         if(b==0){
             return 1;
         }
