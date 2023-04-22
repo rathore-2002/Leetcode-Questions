@@ -1,24 +1,16 @@
-import java.util.*;
-
-public class Solution
-{
-	public final boolean isIsomorphic(String s, String t)
-	{
-		 HashMap<Character, Character> mp = new HashMap<Character, Character>();
-		 HashMap<Character, Character> mp2 = new HashMap<Character, Character>();
-		for (int i = 0; i < s.length(); ++i)
-		{
-			if (mp.get(s.charAt(i)) != null && mp.get(s.charAt(i)) != t.charAt(i))
-			{
-				return false;
-			}
-			if (mp2.get(t.charAt(i)) != null && mp2.get(t.charAt(i)) != s.charAt(i))
-			{
-				return false;
-			}
-			mp.put(s.charAt(i), t.charAt(i));
-			mp2.put(t.charAt(i), s.charAt(i));
-		}
-		return true;
-	}
+class Solution {
+    public boolean isIsomorphic(String s, String t) {
+        if(s.length()!=t.length())    return false;
+        HashMap<Character,Character> map = new HashMap<>();
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            char c=t.charAt(i);
+            if(map.containsKey(ch)){
+                if(map.get(ch)!=c)   return false;
+            }
+            else if(map.containsValue(c))      return false;
+            else                              map.put(ch,c);
+        }
+                    return true;
+    }
 }
