@@ -22,15 +22,3 @@ class Solution {
 }
 
 
-/*HashSet<Integer> set = new HashSet<>();
-        while(n!=1){
-            n=sum(n);
-        if(set.contains(n))
-            return false;
-        else
-            set.add(n);
-            
-        }
-         
-            return true;*/
-        
