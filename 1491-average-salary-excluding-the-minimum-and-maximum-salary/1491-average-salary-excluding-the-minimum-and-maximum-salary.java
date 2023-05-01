@@ -3,7 +3,7 @@ class Solution {
         int n=salary.length;
        int max=Integer.MIN_VALUE;
         int min=Integer.MAX_VALUE;
-        double sum=0.00000;
+        double sum=0;
         for(int i : salary){
             max=Math.max(max,i);
             min=Math.min(min,i);
