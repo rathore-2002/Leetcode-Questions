@@ -1,26 +1,16 @@
 class Solution {
     public int totalFruit(int[] fruits) {
-        int[] counts = new int[fruits.length];
-        int max = 0;
-        int currMax = 0;
-        int typeCount = 0;
-        int start = 0;
-        
-        for(int i = 0; i < fruits.length; i++) {
-            if(counts[fruits[i]] == 0) typeCount++;
-            counts[fruits[i]]++;
-            currMax++;
-            
-            while(typeCount > 2 && start < i) {
-                counts[fruits[start]]--;
-                if(counts[fruits[start]] == 0) typeCount--;
-                start++;
-                currMax--;
+        int l=0,e=0,n=fruits.length,ans=0;
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for(;e<n;e++){
+            map.put(fruits[e],map.getOrDefault(fruits[e],0)+1);
+            for(;map.size()>2 && l<e;l++){
+                if(map.get(fruits[l])==1)          map.remove(fruits[l]);
+                else
+                    map.put(fruits[l],map.get(fruits[l])-1);
             }
-            
-            max = Math.max(max, currMax);
+            ans=Math.max(ans,e-l+1);
         }
-        
-        return max;
+        return ans;
     }
 }
