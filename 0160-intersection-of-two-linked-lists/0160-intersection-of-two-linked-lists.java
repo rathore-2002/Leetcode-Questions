@@ -41,8 +41,6 @@ public class Solution {
             if(temp1==temp2)
                 return temp1;
             
-           // if(temp1.next==temp2.next)
-            //    return temp1.next;
             temp1=temp1.next;
             temp2=temp2.next;
         }    
