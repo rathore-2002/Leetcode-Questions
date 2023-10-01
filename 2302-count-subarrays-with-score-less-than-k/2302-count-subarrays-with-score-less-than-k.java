@@ -7,9 +7,8 @@ class Solution {
             for(;sum*(e-l+1)>=k;l++){
                 sum-=nums[l];
             }
-             ans+=e-l+1;
+            ans+=(e-l+1);
         }
         return ans;
     }
 }
-
