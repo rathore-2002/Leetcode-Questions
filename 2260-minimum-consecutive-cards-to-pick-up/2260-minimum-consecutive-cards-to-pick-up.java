@@ -5,11 +5,11 @@ class Solution {
         for(;e<n;e++){
             map.put(cards[e],map.getOrDefault(cards[e],0)+1);
             for(;map.get(cards[e])>1;l++){
-                ans=Math.min(ans,e-l+1);
+              ans=Math.min(ans,e-l+1);
                 map.put(cards[l],map.get(cards[l])-1);
             }
         }
-        if(ans==Integer.MAX_VALUE)       return -1;
+        if(ans==Integer.MAX_VALUE)   return -1;
         return ans;
     }
 }
