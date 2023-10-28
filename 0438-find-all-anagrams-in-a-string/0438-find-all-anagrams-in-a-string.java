@@ -14,12 +14,12 @@ class Solution {
         if(sMap.equals(pMap))              arr.add(0);
         
         for(;e<n;e++){
-           char acquire = s.charAt(e);   
-            sMap.put(acquire, sMap.getOrDefault(acquire, 0) + 1);
-            char discard = s.charAt(l++);   
-            sMap.put(discard, sMap.get(discard) - 1);
-            if (sMap.get(discard) == 0) {   
-                sMap.remove(discard);
+           char add = s.charAt(e);   
+            sMap.put(add, sMap.getOrDefault(add, 0) + 1);
+            char del = s.charAt(l++);   
+            sMap.put(del, sMap.get(del) - 1);
+            if (sMap.get(del) == 0) {   
+                sMap.remove(del);
             }
              if (sMap.equals(pMap)) {
                 arr.add(l);  
