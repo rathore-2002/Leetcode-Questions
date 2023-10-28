@@ -5,12 +5,11 @@ class Solution {
         for(;e<n;e++){
             sum+=nums[e];
             for(;sum>=target;l++){
-             ans=Math.min(ans,e-l+1);
+                ans=Math.min(ans,e-l+1);
                 sum-=nums[l];
             }
-           
         }
-        if(ans==Integer.MAX_VALUE)         return 0;
+        if(ans==Integer.MAX_VALUE)        return 0;
         return ans;
     }
 }
