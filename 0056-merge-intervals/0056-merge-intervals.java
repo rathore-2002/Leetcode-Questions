@@ -18,4 +18,4 @@ class Solution {
         res.add(new int[]{s,e});
         return res.toArray(new int[0][]);
     }
-}
+}                                                                             
