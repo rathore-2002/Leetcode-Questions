@@ -5,6 +5,7 @@ class Solution {
             int mid=s+(e-s)/2;
             if(nums[mid]==target)  return true;
             
+            //to handle duplicate elements
              if(nums[s] == nums[mid] && nums[mid] == nums[e]) {
                 s++;
                 e--;
