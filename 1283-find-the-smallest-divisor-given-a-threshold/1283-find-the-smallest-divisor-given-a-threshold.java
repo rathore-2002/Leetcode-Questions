@@ -16,7 +16,7 @@ class Solution {
     private boolean isPossible(int nums[], int mid, int x){
         int s=0;
         for(int i : nums){
-            s+=(int)Math.ceil(i*1.0/mid);
+            s+=(int)Math.ceil(i*1.0/mid);                       //important
         }
         if(s<=x)        return true;
         return false;
