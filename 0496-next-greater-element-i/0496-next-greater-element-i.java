@@ -1,28 +1,34 @@
 class Solution {
-public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-HashMap<Integer,Integer> n=new HashMap<Integer,Integer>();
-for(int i=0;i<nums2.length;i++){
-n.put(nums2[i],i);
-}
+    public int[] nextGreaterElement(int[] nums1, int[] nums2) {
+        Stack<Integer> stack = new Stack<>();
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i = nums2.length-1; i>=0; i--){
+            
+            if(stack.isEmpty()) {
+                map.put(nums2[i], -1);
+            }
+            else if(!stack.isEmpty() && nums2[i]< stack.peek()){
+                map.put(nums2[i], stack.peek());
+            }
+            else{ 
 
-    for(int j=0;j<nums1.length;j++){
-        int v=n.get(nums1[j]);
-         if(v==nums2.length-1){
-        nums1[j]=-1;
-    }
-       for(int k=v+1;k<nums2.length;k++){
-            if(nums2[v]<nums2[k]){
-           nums1[j]=nums2[k];
-                break;
-           }
-              else{
-            nums1[j]=-1;
+                while(!stack.isEmpty() && nums2[i]>= stack.peek()){
+                    stack.pop();
+                }
+                    if(stack.isEmpty()){
+                        map.put(nums2[i], -1);
+                    }
+                    else{
+                        map.put(nums2[i], stack.peek());
+                    }    
+            }
+            stack.push(nums2[i]);
         }
-       }
-       
-     
+
+        int ans[] = new int[nums1.length];
+        for(int i=0; i<nums1.length; i++){
+            ans[i] = map.get(nums1[i]);
+        }
+        return ans;
+    }
 }
-    return nums1;
-}
-}
-// without stack
