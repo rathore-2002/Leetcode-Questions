@@ -1,19 +1,23 @@
 class Solution {
     public int subarraysDivByK(int[] nums, int k) {
-        Map<Integer,Integer> map=new HashMap<>();
-        int sum=0;
-        int res=0;
-        for(int i:nums)
-        {
-            sum+=i;
-            map.put(((sum%k)+k)%k,map.getOrDefault(((sum%k)+k)%k,0)+1);
-        }
-        for(int i:map.keySet())
-        {
-            int val=map.get(i);
-            if(val>1)res+=((val*(val-1))/2);
-        }
+        int count = 0;
+        int sum = 0;
+        // Create a map to store the remainder of each sum
+        // Key is the remainder, value is the number of times it appears
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1); // Initialize with 0 remainder and count 1
 
-        return res+(map.get(0)!=null?map.get(0):0);
+        for (int num : nums) {
+            sum += num;
+            // Find remainder of sum when divided by k
+            int remainder = (sum % k + k) % k; 
+            // If the remainder already exists in the map, add its count to the result
+            if (map.containsKey(remainder)) {
+                count += map.get(remainder);
+            }
+            // Add remainder to the map or increase its count
+            map.put(remainder, map.getOrDefault(remainder, 0) + 1);
+        }
+        return count;
     }
 }
