@@ -16,19 +16,13 @@ class Solution {
             return totalSum;
         }
 
-        while(end < cardPoints.length) {
-
-            sum += cardPoints[end];
-            if(end - start + 1 < k) {
-                end++;
-            }
-            else if(end - start + 1 == k) {
-                ans = Math.min(ans, sum);
-                sum -= cardPoints[start];
-                start++;
-                end++;
-            }
-        }
+      for(;end<cardPoints.length;end++){
+          sum+=cardPoints[end];
+          for(;end-start+1>k;start++){
+              sum-=cardPoints[start];
+          }
+          if(end-start+1==k)  ans=Math.min(ans,sum);
+      }
         return totalSum - ans;
     }
 }
