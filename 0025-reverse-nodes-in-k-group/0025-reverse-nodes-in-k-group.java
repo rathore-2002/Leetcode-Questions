@@ -18,9 +18,6 @@ class Solution {
         return c;
     }
     public ListNode reverseKGroup(ListNode head, int k) {
-        return reverse(head,k);
-    }
-    public ListNode reverse(ListNode head, int k) {
       if(head==null || head.next==null)      return head;
         ListNode curr=head,prev=null,next=null;
         int size=size(head);
